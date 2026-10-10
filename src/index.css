@@ -1,0 +1,871 @@
+/* =========================================================
+   BLOODCONNECT — GLOBAL UI
+   ========================================================= */
+
+:root {
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  color: #172033;
+  background: #f5f7fb;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 10% 10%,
+      rgba(220, 38, 38, 0.08),
+      transparent 30%),
+    radial-gradient(circle at 90% 90%,
+      rgba(99, 102, 241, 0.08),
+      transparent 30%),
+    #f5f7fb;
+}
+
+/* =========================================================
+   AWS AMPLIFY AUTHENTICATOR
+   ========================================================= */
+
+[data-amplify-authenticator] {
+  min-height: 100vh;
+  width: 100%;
+
+  --amplify-colors-background-primary: #f5f7fb;
+  --amplify-colors-background-secondary: #ffffff;
+
+  --amplify-colors-font-primary: #172033;
+  --amplify-colors-font-secondary: #64748b;
+  --amplify-colors-font-interactive: #dc2626;
+
+  --amplify-colors-brand-primary-10: #fff1f2;
+  --amplify-colors-brand-primary-20: #ffe4e6;
+  --amplify-colors-brand-primary-40: #fecdd3;
+  --amplify-colors-brand-primary-60: #fb7185;
+  --amplify-colors-brand-primary-80: #e11d48;
+  --amplify-colors-brand-primary-90: #be123c;
+  --amplify-colors-brand-primary-100: #9f1239;
+
+  --amplify-components-authenticator-router-box-shadow:
+    0 24px 70px rgba(15, 23, 42, 0.14);
+
+  --amplify-components-authenticator-router-border-width: 1px;
+  --amplify-components-authenticator-router-border-color: #e5e7eb;
+
+  --amplify-components-button-primary-background-color: #dc2626;
+  --amplify-components-button-primary-hover-background-color: #b91c1c;
+
+  --amplify-components-button-border-radius: 10px;
+
+  --amplify-components-fieldcontrol-border-radius: 10px;
+  --amplify-components-fieldcontrol-border-color: #d1d5db;
+
+  --amplify-components-tabs-item-active-color: #dc2626;
+  --amplify-components-tabs-item-active-border-color: #dc2626;
+
+  --amplify-components-tabs-item-color: #64748b;
+}
+
+/* Authenticator outer area */
+
+[data-amplify-authenticator] [data-amplify-container] {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px 20px;
+}
+
+/* Login card */
+
+[data-amplify-authenticator] [data-amplify-router] {
+  width: min(440px, calc(100vw - 40px));
+  margin: auto;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  border: 1px solid #e5e7eb;
+  border-radius: 22px;
+
+  padding: 34px;
+
+  box-shadow:
+    0 25px 60px rgba(15, 23, 42, 0.12),
+    0 8px 20px rgba(15, 23, 42, 0.05);
+
+  backdrop-filter: blur(12px);
+}
+
+/* Add BloodConnect branding above the form */
+
+[data-amplify-authenticator] [data-amplify-router]::before {
+  content: "🩸 BloodConnect";
+  display: block;
+
+  text-align: center;
+
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+
+  color: #dc2626;
+
+  margin-bottom: 8px;
+}
+
+[data-amplify-authenticator] [data-amplify-router]::after {
+  content: "Connecting blood. Saving lives.";
+  display: block;
+
+  text-align: center;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  color: #64748b;
+
+  margin-top: 20px;
+}
+
+/* Tabs */
+
+[data-amplify-authenticator] [role="tablist"] {
+  margin-bottom: 28px;
+}
+
+[data-amplify-authenticator] [role="tab"] {
+  font-weight: 700;
+}
+
+/* Labels */
+
+[data-amplify-authenticator] label {
+  font-weight: 600;
+  color: #334155;
+}
+
+/* Inputs */
+
+[data-amplify-authenticator] input {
+  min-height: 46px;
+
+  border-radius: 10px !important;
+
+  background: #ffffff !important;
+
+  color: #172033 !important;
+
+  border: 1px solid #d1d5db !important;
+
+  font-size: 15px !important;
+}
+
+[data-amplify-authenticator] input:focus {
+  border-color: #dc2626 !important;
+
+  box-shadow:
+    0 0 0 3px rgba(220, 38, 38, 0.12) !important;
+}
+
+/* Main sign-in button */
+
+[data-amplify-authenticator] button[type="submit"] {
+  min-height: 46px;
+
+  border-radius: 10px !important;
+
+  font-weight: 700;
+
+  font-size: 15px;
+
+  background: #dc2626 !important;
+
+  border: none !important;
+
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease;
+}
+
+[data-amplify-authenticator] button[type="submit"]:hover {
+  background: #b91c1c !important;
+
+  transform: translateY(-1px);
+}
+
+/* Secondary buttons */
+
+[data-amplify-authenticator] button {
+  border-radius: 10px;
+}
+
+/* Links */
+
+[data-amplify-authenticator] a {
+  color: #dc2626 !important;
+  font-weight: 600;
+}
+
+/* =========================================================
+   BLOODCONNECT APP
+   ========================================================= */
+
+.app {
+  min-height: 100vh;
+
+  background:
+    radial-gradient(circle at 10% 0%,
+      rgba(220, 38, 38, 0.06),
+      transparent 25%),
+    #f5f7fb;
+
+  color: #172033;
+
+  padding-bottom: 50px;
+}
+
+.hero-section {
+  text-align: center;
+
+  padding: 36px 20px 24px;
+}
+
+.project-name {
+  margin: 0;
+
+  font-size: 42px;
+  font-weight: 850;
+
+  letter-spacing: -1.5px;
+
+  color: #111827;
+}
+
+.tagline {
+  margin: 8px 0 18px;
+
+  color: #64748b;
+
+  font-size: 16px;
+}
+
+.btn {
+  border: none;
+
+  border-radius: 10px;
+
+  padding: 10px 18px;
+
+  background: #dc2626;
+
+  color: white;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.btn:hover {
+  background: #b91c1c;
+
+  transform: translateY(-1px);
+
+  box-shadow: 0 8px 18px rgba(220, 38, 38, 0.18);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* =========================================================
+   CARDS / SECTIONS
+   ========================================================= */
+
+.inventory-section,
+.capabilities-section,
+.inventory-table-container,
+.matching-donors-section,
+.admin-low-stock {
+  width: min(1100px, calc(100% - 32px));
+
+  margin: 18px auto;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 18px;
+
+  padding: 24px;
+
+  box-shadow:
+    0 10px 30px rgba(15, 23, 42, 0.05);
+}
+
+.inventory-section h2,
+.capabilities-section h2,
+.inventory-table-container h2 {
+  margin-top: 0;
+
+  color: #111827;
+
+  font-size: 20px;
+}
+
+/* =========================================================
+   TABLES
+   ========================================================= */
+
+.inventory-table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  margin-top: 16px;
+
+  overflow: hidden;
+}
+
+.inventory-table th {
+  text-align: left;
+
+  padding: 14px;
+
+  background: #f8fafc;
+
+  color: #475569;
+
+  font-size: 13px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.04em;
+}
+
+.inventory-table td {
+  padding: 14px;
+
+  border-top: 1px solid #eef2f7;
+
+  color: #334155;
+
+  font-size: 14px;
+}
+
+.inventory-table tr:hover td {
+  background: #fafafa;
+}
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.low-stock {
+  color: #dc2626 !important;
+
+  font-weight: 750;
+}
+
+.normal-stock {
+  color: #059669 !important;
+
+  font-weight: 750;
+}
+
+/* =========================================================
+   FORMS
+   ========================================================= */
+
+.inventory-form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.inventory-form label {
+  color: #475569;
+
+  font-size: 13px;
+
+  font-weight: 650;
+
+  margin-top: 6px;
+}
+
+.inventory-form input,
+.inventory-form select,
+.inventory-form textarea {
+  width: 100%;
+
+  padding: 11px 13px;
+
+  border: 1px solid #d1d5db;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  color: #172033;
+
+  font-size: 14px;
+
+  outline: none;
+}
+
+.inventory-form input:focus,
+.inventory-form select:focus,
+.inventory-form textarea:focus {
+  border-color: #dc2626;
+
+  box-shadow:
+    0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+/* =========================================================
+   DASHBOARD CARDS
+   ========================================================= */
+
+.capabilities-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(240px, 1fr));
+
+  gap: 16px;
+}
+
+.capability-card {
+  padding: 20px;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 14px;
+
+  background: #f8fafc;
+}
+
+.capability-card h3 {
+  margin-top: 0;
+
+  color: #111827;
+}
+
+.capability-card p {
+  color: #64748b;
+
+  line-height: 1.6;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 700px) {
+  .project-name {
+    font-size: 32px;
+  }
+
+  .inventory-section,
+  .capabilities-section,
+  .inventory-table-container,
+  .matching-donors-section,
+  .admin-low-stock {
+    width: calc(100% - 20px);
+
+    padding: 18px;
+  }
+
+  .inventory-table {
+    display: block;
+
+    overflow-x: auto;
+  }
+
+  [data-amplify-authenticator] [data-amplify-router] {
+    padding: 24px;
+  }
+}
+
+/* =========================================================
+   FINAL AUTHENTICATOR POLISH
+   ========================================================= */
+
+[data-amplify-authenticator] button {
+  font-family: inherit !important;
+  font-weight: 600 !important;
+  border-radius: 9px !important;
+  border: 1px solid #d1d5db !important;
+  box-shadow: none !important;
+}
+
+/* Auth tabs */
+[data-amplify-authenticator] [role="tablist"] {
+  display: flex !important;
+  gap: 8px !important;
+  border-bottom: none !important;
+}
+
+[data-amplify-authenticator] [role="tab"] {
+  flex: 1 !important;
+  padding: 10px 12px !important;
+  border-radius: 9px !important;
+  border: 1px solid #e5e7eb !important;
+  background: #f8fafc !important;
+  color: #475569 !important;
+}
+
+[data-amplify-authenticator] [role="tab"][aria-selected="true"] {
+  background: #fff1f2 !important;
+  color: #dc2626 !important;
+  border-color: #fecdd3 !important;
+}
+
+/* Auth fields */
+[data-amplify-authenticator] input {
+  width: 100% !important;
+  min-height: 48px !important;
+  padding: 11px 13px !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+}
+
+/* Password visibility button */
+[data-amplify-authenticator] input+button {
+  border: 1px solid #cbd5e1 !important;
+  background: #ffffff !important;
+}
+
+/* Main sign-in button */
+[data-amplify-authenticator] button[type="submit"] {
+  width: 100% !important;
+  min-height: 48px !important;
+
+  margin-top: 8px !important;
+
+  background: #dc2626 !important;
+  color: white !important;
+
+  border: none !important;
+  border-radius: 10px !important;
+
+  font-size: 15px !important;
+  font-weight: 700 !important;
+}
+
+[data-amplify-authenticator] button[type="submit"]:hover {
+  background: #b91c1c !important;
+}
+
+/* Forgot password */
+[data-amplify-authenticator] button[type="button"] {
+  color: #dc2626 !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+[data-amplify-authenticator] button[type="button"]:hover {
+  text-decoration: underline !important;
+}
+
+/* =========================================================
+   ADMIN DASHBOARD
+   ========================================================= */
+
+.admin-dashboard {
+  width: min(1100px, calc(100% - 32px));
+  margin: 18px auto 24px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.admin-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+
+  padding: 22px;
+
+  box-shadow:
+    0 8px 24px rgba(15, 23, 42, 0.05);
+
+  min-height: 125px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.admin-card h3 {
+  margin: 0;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  color: #64748b;
+}
+
+.admin-number {
+  margin: 12px 0 0;
+
+  font-size: 34px;
+  font-weight: 800;
+
+  color: #111827;
+}
+
+/* Highlight important admin metrics */
+
+.admin-card:nth-child(2) .admin-number {
+  color: #dc2626;
+}
+
+.admin-card:nth-child(3) .admin-number {
+  color: #2563eb;
+}
+
+.admin-card:nth-child(4) .admin-number {
+  color: #d97706;
+}
+
+.admin-card:nth-child(5) .admin-number {
+  color: #7c3aed;
+}
+
+.admin-card:nth-child(6) .admin-number {
+  color: #059669;
+}
+
+@media (max-width: 800px) {
+  .admin-dashboard {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .admin-dashboard {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   ADMIN — REGISTERED DONORS
+   ========================================================= */
+
+.section-heading-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 18px;
+}
+
+.section-heading-row h2 {
+  margin: 0 0 5px;
+}
+
+.section-subtitle {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.count-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 7px 12px;
+
+  border-radius: 999px;
+
+  background: #fff1f2;
+  color: #dc2626;
+
+  border: 1px solid #fecdd3;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+/* Donor row */
+
+.admin-donor-table td {
+  vertical-align: middle;
+}
+
+.donor-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.donor-avatar {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #fff1f2;
+  color: #dc2626;
+
+  font-weight: 800;
+  font-size: 15px;
+}
+
+.donor-name-cell div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.donor-name-cell strong {
+  color: #111827;
+  font-size: 14px;
+}
+
+.donor-name-cell span {
+  color: #64748b;
+  font-size: 12px;
+}
+
+/* Blood group */
+
+.blood-group-badge {
+  display: inline-flex;
+
+  min-width: 42px;
+
+  justify-content: center;
+
+  padding: 5px 9px;
+
+  border-radius: 7px;
+
+  background: #f1f5f9;
+
+  color: #334155;
+
+  font-weight: 800;
+
+  font-size: 13px;
+}
+
+/* Donation status */
+
+.status-badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: 6px 10px;
+
+  border-radius: 999px;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.02em;
+}
+
+.status-donated {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+.status-accepted {
+  background: #fff7ed;
+  color: #d97706;
+}
+
+.status-available {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+/* Empty state */
+
+.empty-state {
+  text-align: center;
+
+  padding: 45px 20px;
+
+  border: 1px dashed #d1d5db;
+
+  border-radius: 14px;
+
+  background: #f8fafc;
+}
+
+.empty-state-icon {
+  font-size: 34px;
+  margin-bottom: 8px;
+}
+
+.empty-state h3 {
+  margin: 0 0 6px;
+
+  color: #111827;
+}
+
+.empty-state p {
+  margin: 0;
+
+  color: #64748b;
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .section-heading-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .admin-donor-table {
+    min-width: 650px;
+  }
+}

@@ -1,0 +1,182 @@
+/* =========================================================
+   BLOODCONNECT — ROLE SIDEBARS
+   Append this block to the bottom of src/index.css
+   ========================================================= */
+
+.role-app {
+    min-height: 100vh;
+}
+
+.role-main {
+    min-height: 100vh;
+    margin-left: 258px;
+    padding-bottom: 48px;
+}
+
+.role-sidebar {
+    position: fixed;
+    z-index: 50;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 258px;
+    padding: 24px 14px;
+    display: flex;
+    flex-direction: column;
+    background: #111827;
+    color: #ffffff;
+    box-shadow: 6px 0 24px rgba(15, 23, 42, 0.10);
+}
+
+.role-sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.role-sidebar-logo {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: #dc2626;
+    font-size: 20px;
+    box-shadow: 0 8px 18px rgba(220, 38, 38, 0.24);
+}
+
+.role-sidebar-title {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.4px;
+}
+
+.role-sidebar-subtitle {
+    margin-top: 3px;
+    color: #cbd5e1;
+    font-size: 12px;
+}
+
+.role-sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-top: 24px;
+}
+
+.role-sidebar-link {
+    width: 100%;
+    min-height: 46px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 12px;
+    border: 1px solid transparent;
+    border-radius: 11px;
+    background: transparent;
+    color: #cbd5e1;
+    text-align: left;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.16s ease, color 0.16s ease, transform 0.16s ease;
+}
+
+.role-sidebar-link:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    transform: translateX(2px);
+}
+
+.role-sidebar-link:focus-visible {
+    outline: 2px solid #fb7185;
+    outline-offset: 2px;
+}
+
+.role-sidebar-icon {
+    width: 24px;
+    flex-shrink: 0;
+    text-align: center;
+    font-size: 17px;
+}
+
+.role-sidebar-footer {
+    margin-top: auto;
+    padding: 14px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #94a3b8;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.role-sidebar-footer strong {
+    display: block;
+    margin-bottom: 3px;
+    color: #ffffff;
+    font-size: 12px;
+}
+
+.role-hero {
+    padding-top: 38px !important;
+}
+
+.role-section {
+    scroll-margin-top: 24px;
+}
+
+/* Give each role's content a little more breathing room beside the sidebar. */
+.role-main>.inventory-table-container,
+.role-main>.inventory-section,
+.role-main>.matching-donors-section,
+.role-main>.admin-low-stock,
+.role-main>.admin-dashboard {
+    width: min(1100px, calc(100% - 48px));
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 850px) {
+    .role-sidebar {
+        position: static;
+        width: 100%;
+        min-height: auto;
+        padding: 14px;
+    }
+
+    .role-sidebar-brand {
+        padding-bottom: 14px;
+    }
+
+    .role-sidebar-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 14px;
+    }
+
+    .role-sidebar-link {
+        width: auto;
+        flex: 1 1 160px;
+    }
+
+    .role-sidebar-footer {
+        display: none;
+    }
+
+    .role-main {
+        margin-left: 0;
+    }
+
+    .role-main>.inventory-table-container,
+    .role-main>.inventory-section,
+    .role-main>.matching-donors-section,
+    .role-main>.admin-low-stock,
+    .role-main>.admin-dashboard {
+        width: calc(100% - 24px);
+    }
+}
